@@ -3,280 +3,628 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sniper de Promoções - Snipando as promoções para você não pagar caro nas coisas. As melhores ofertas da internet em um só lugar.">
-    <meta name="keywords" content="promoções, ofertas, descontos, cupons, black friday, deals">
-    <meta name="author" content="Sniper de Promoções">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Sniper de Promoções - As Melhores Ofertas">
-    <meta property="og:description" content="Snipando as promoções para você não pagar caro nas coisas">
-    
-    <title>Sniper de Promoções - As Melhores Ofertas da Internet</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sniper de Promoções | Snipando as melhores ofertas</title>
+    <meta name="description" content="Snipando as promoções para você não pagar caro nas coisas. As melhores ofertas reunidas em um só lugar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul-bg: #0a1628;
+            --azul-escuro: #060f1d;
+            --vermelho: #ff4d6d;
+            --vermelho-claro: #ff6b85;
+            --verde: #7bed9f;
+            --verde-escuro: #2ed573;
+            --texto: #e8f1ff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--azul-bg);
+            color: var(--texto);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fundo animado com grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 77, 109, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(123, 237, 159, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Mira decorativa no fundo */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            border: 1px solid rgba(255, 77, 109, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HEADER */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 77, 109, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            width: 40px; height: 40px;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '🎯';
+            font-size: 2rem;
+        }
+
+        .logo span:first-of-type {
+            color: var(--vermelho);
+            text-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
+        }
+
+        .logo span:last-of-type {
+            color: var(--verde);
+            text-shadow: 0 0 10px rgba(123, 237, 159, 0.5);
+        }
+
+        .nav-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--verde);
+        }
+
+        .status-dot {
+            width: 8px; height: 8px;
+            background: var(--verde);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--verde);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+            position: relative;
+        }
+
+        .hero-target {
+            width: 180px; height: 180px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .target-ring {
+            position: absolute;
+            border: 3px solid var(--vermelho);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.6), inset 0 0 20px rgba(255, 77, 109, 0.3);
+        }
+
+        .target-ring.outer {
+            width: 180px; height: 180px;
+            top: 0; left: 0;
+        }
+
+        .target-ring.inner {
+            width: 120px; height: 120px;
+            top: 30px; left: 30px;
+        }
+
+        .target-center {
+            position: absolute;
+            width: 60px; height: 60px;
+            top: 60px; left: 60px;
+            background: var(--verde);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 0 30px rgba(123, 237, 159, 0.8);
+            animation: pulse 1.5s infinite;
+        }
+
+        .target-line {
+            position: absolute;
+            background: var(--vermelho);
+            box-shadow: 0 0 10px var(--vermelho);
+        }
+
+        .target-line.v { width: 3px; height: 40px; top: -20px; left: 88px; }
+        .target-line.v2 { width: 3px; height: 40px; bottom: -20px; left: 88px; }
+        .target-line.h { width: 40px; height: 3px; left: -20px; top: 88px; }
+        .target-line.h2 { width: 40px; height: 3px; right: -20px; top: 88px; }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 .sniper {
+            color: var(--vermelho);
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.7);
+            display: block;
+        }
+
+        h1 .promocoes {
+            color: var(--verde);
+            text-shadow: 0 0 20px rgba(123, 237, 159, 0.7);
+            display: block;
+        }
+
+        .slogan {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #a8c4e6;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .slogan strong {
+            color: var(--verde);
+            font-weight: 600;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            padding: 15px 35px;
+            background: var(--verde);
+            color: var(--azul-bg);
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 30px rgba(123, 237, 159, 0.5);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(123, 237, 159, 0.9);
+        }
+
+        .btn-secondary {
+            padding: 15px 35px;
+            background: transparent;
+            color: var(--vermelho);
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid var(--vermelho);
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--vermelho);
+            color: white;
+            box-shadow: 0 0 30px rgba(255, 77, 109, 0.6);
+        }
+
+        /* STATS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(123, 237, 159, 0.2);
+            border-bottom: 1px solid rgba(123, 237, 159, 0.2);
+            margin: 40px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--verde);
+            text-shadow: 0 0 15px rgba(123, 237, 159, 0.6);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #a8c4e6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* SOBRE */
+        .about {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title .red { color: var(--vermelho); text-shadow: 0 0 15px rgba(255, 77, 109, 0.6); }
+        .section-title .green { color: var(--verde); text-shadow: 0 0 15px rgba(123, 237, 159, 0.6); }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background: rgba(6, 15, 29, 0.6);
+            border: 1px solid rgba(123, 237, 159, 0.2);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: left;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: var(--verde);
+            box-shadow: 0 10px 30px rgba(123, 237, 159, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: var(--verde);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .feature p {
+            color: #a8c4e6;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* REDES SOCIAIS */
+        .social {
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px;
+            background: rgba(6, 15, 29, 0.8);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-btn:hover::before { left: 100%; }
+
+        .social-btn.instagram { border-color: #e1306c; }
+        .social-btn.instagram:hover { background: #e1306c; box-shadow: 0 0 30px rgba(225, 48, 108, 0.6); }
+
+        .social-btn.tiktok { border-color: #ff0050; }
+        .social-btn.tiktok:hover { background: #ff0050; box-shadow: 0 0 30px rgba(255, 0, 80, 0.6); }
+
+        .social-btn.telegram { border-color: #0088cc; }
+        .social-btn.telegram:hover { background: #0088cc; box-shadow: 0 0 30px rgba(0, 136, 204, 0.6); }
+
+        .social-btn.whatsapp { border-color: #25d366; }
+        .social-btn.whatsapp:hover { background: #25d366; box-shadow: 0 0 30px rgba(37, 211, 102, 0.6); }
+
+        .social-btn.twitter { border-color: #1da1f2; }
+        .social-btn.twitter:hover { background: #1da1f2; box-shadow: 0 0 30px rgba(29, 161, 242, 0.6); }
+
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        .social-handle {
+            font-size: 0.8rem;
+            color: #a8c4e6;
+            display: block;
+            margin-top: 3px;
+            font-weight: 400;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255, 77, 109, 0.2);
+            color: #a8c4e6;
+            font-size: 0.9rem;
+        }
+
+        footer .heart { color: var(--vermelho); }
+        footer .target { color: var(--verde); }
+
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero { padding: 50px 0 40px; }
+            .hero-target { width: 140px; height: 140px; }
+            .target-ring.outer { width: 140px; height: 140px; }
+            .target-ring.inner { width: 90px; height: 90px; top: 25px; left: 25px; }
+            .target-center { width: 50px; height: 50px; top: 45px; left: 45px; font-size: 1.5rem; }
+            .target-line.v { left: 68px; }
+            .target-line.v2 { left: 68px; }
+            .target-line.h { top: 68px; }
+            .target-line.h2 { top: 68px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- HEADER / NAVIGATION -->
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <img src="logo.png" alt="Sniper de Promoções Logo">
-                    <span>Sniper de Promoções</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#ofertas">Ofertas</a></li>
-                    <li><a href="#comunidade">Comunidade</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div>
+                    <span>SNIPER</span> <span>DE PROMOÇÕES</span>
                 </div>
             </div>
-        </nav>
-    </header>
+            <div class="nav-status">
+                <div class="status-dot"></div>
+                <span>Ofertas ativas</span>
+            </div>
+        </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">🎯 Economia Inteligente</div>
-            <h1>Sniper de Promoções</h1>
-            <p class="hero-subtitle">Snipando as promoções para você não pagar caro nas coisas</p>
-            <p class="hero-description">Encontre as melhores ofertas da internet antes de todo mundo. Economize de verdade com cupons exclusivos e promoções imperdíveis!</p>
-            
-            <div class="hero-buttons">
-                <a href="https://t.me/SniperDePromocoes" class="btn btn-primary" target="_blank">
-                    <i class="fab fa-telegram"></i> Entrar no Telegram
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-target">
+                <div class="target-line v"></div>
+                <div class="target-line v2"></div>
+                <div class="target-line h"></div>
+                <div class="target-line h2"></div>
+                <div class="target-ring outer"></div>
+                <div class="target-ring inner"></div>
+                <div class="target-center">🏷️</div>
+            </div>
+
+            <h1>
+                <span class="sniper">Sniper</span>
+                <span class="promocoes">de Promoções</span>
+            </h1>
+
+            <p class="slogan">
+                 <strong>Snipando as promoções</strong> para você não pagar caro nas coisas. 
+                As melhores ofertas direto no seu celular.
+            </p>
+
+            <div class="cta-group">
+                <a href="https://t.me/SniperDePromocoes" target="_blank" class="btn-primary">
+                    📢 Entrar no Telegram
                 </a>
-                <a href="#ofertas" class="btn btn-secondary">
-                    <i class="fas fa-tags"></i> Ver Ofertas
+                <a href="#redes" class="btn-secondary">
+                    🔗 Ver todas as redes
                 </a>
             </div>
+        </section>
 
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-number">10K+</span>
-                    <span class="stat-label">Membros Ativos</span>
+        <!-- STATS -->
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-number">+500</div>
+                <div class="stat-label">Ofertas por semana</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">-70%</div>
+                <div class="stat-label">Economia média</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Monitoramento</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Gratuito</div>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="about">
+            <h2 class="section-title">
+                Por que seguir o <span class="red">Sniper</span> <span class="green">de Promoções</span>?
+            </h2>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Precisão nas ofertas</h3>
+                    <p>Selecionamos apenas as promoções realmente boas. Nada de oferta falsa ou preço inflado.</p>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Ofertas/Dia</span>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Velocidade</h3>
+                    <p>Postamos as ofertas em tempo real. Quem avisa primeiro, economiza primeiro.</p>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">80%</span>
-                    <span class="stat-label">Economia Média</span>
+                <div class="feature">
+                    <div class="feature-icon">️</div>
+                    <h3>Cupons exclusivos</h3>
+                    <p>Além das promoções, compartilhamos cupons de desconto e códigos promocionais.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Economia real</h3>
+                    <p>Nossos seguidores economizam centenas de reais todo mês comprando com inteligência.</p>
                 </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="logo.png" alt="Sniper Logo" class="floating-logo">
-        </div>
-    </section>
+        </section>
 
-    <!-- OFERTAS EM DESTAQUE -->
-    <section id="ofertas" class="ofertas">
-        <div class="container">
-            <div class="section-header">
-                <h2>🔥 Ofertas em Destaque</h2>
-                <p>As melhores promoções selecionadas para você</p>
-            </div>
-
-            <div class="ofertas-grid">
-                <div class="oferta-card">
-                    <div class="oferta-badge">-70%</div>
-                    <div class="oferta-icon">📱</div>
-                    <h3>Eletrônicos</h3>
-                    <p>Smartphones, notebooks, tablets e muito mais com descontos incríveis</p>
-                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
-                </div>
-
-                <div class="oferta-card">
-                    <div class="oferta-badge">-60%</div>
-                    <div class="oferta-icon">👕</div>
-                    <h3>Moda & Estilo</h3>
-                    <p>Roupas, calçados e acessórios das melhores marcas</p>
-                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
-                </div>
-
-                <div class="oferta-card">
-                    <div class="oferta-badge">-50%</div>
-                    <div class="oferta-icon">🏠</div>
-                    <h3>Casa & Decoração</h3>
-                    <p>Transforme sua casa com promoções exclusivas</p>
-                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
-                </div>
-
-                <div class="oferta-card">
-                    <div class="oferta-badge">-80%</div>
-                    <div class="oferta-icon">🎮</div>
-                    <h3>Games & Diversão</h3>
-                    <p>Jogos, consoles e entretenimento com super descontos</p>
-                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMUNIDADE / REDES SOCIAIS -->
-    <section id="comunidade" class="comunidade">
-        <div class="container">
-            <div class="section-header">
-                <h2>📱 Junte-se à Nossa Comunidade</h2>
-                <p>Receba ofertas em primeira mão nas suas redes favoritas</p>
-            </div>
+        <!-- REDES SOCIAIS -->
+        <section class="social" id="redes">
+            <h2 class="section-title">
+                Siga o <span class="red">Sniper</span> nas <span class="green">redes</span>
+            </h2>
+            <p style="color: #a8c4e6; max-width: 500px; margin: 0 auto;">
+                Escolha sua plataforma favorita e receba as melhores promoções todos os dias.
+            </p>
 
             <div class="social-grid">
-                <a href="https://t.me/SniperDePromocoes" class="social-card telegram" target="_blank">
-                    <i class="fab fa-telegram"></i>
-                    <h3>Telegram</h3>
-                    <p>Canal principal com ofertas instantâneas</p>
-                    <span class="social-arrow">→</span>
-                </a>
-
-                <a href="https://whatsapp.com/channel/0029VbDHGlp0gcfNymH8cA0V" class="social-card whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp</h3>
-                    <p>Receba ofertas direto no seu WhatsApp</p>
-                    <span class="social-arrow">→</span>
-                </a>
-
-                <a href="https://instagram.com/sniper_de_promocoes" class="social-card instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                    <h3>Instagram</h3>
-                    <p>Dicas e ofertas exclusivas</p>
-                    <span class="social-arrow">→</span>
-                </a>
-
-                <a href="https://tiktok.com/@sniperdepromocoes" class="social-card tiktok" target="_blank">
-                    <i class="fab fa-tiktok"></i>
-                    <h3>TikTok</h3>
-                    <p>Vídeos rápidos das melhores promoções</p>
-                    <span class="social-arrow">→</span>
-                </a>
-
-                <a href="https://x.com/sniperdepromo" class="social-card twitter" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                    <h3>Twitter / X</h3>
-                    <p>Alertas em tempo real</p>
-                    <span class="social-arrow">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- POR QUE ESCOLHER -->
-    <section class="why-us">
-        <div class="container">
-            <div class="section-header">
-                <h2>💎 Por Que Escolher o Sniper?</h2>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Alertas Instantâneos</h3>
-                    <p>Seja o primeiro a saber das promoções relâmpago</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <h3>Ofertas Verificadas</h3>
-                    <p>Todas as promoções são testadas pela nossa equipe</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">🎁</div>
-                    <h3>Cupons Exclusivos</h3>
-                    <p>Descontos que você não encontra em outros lugares</p>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <h3>100% Gratuito</h3>
-                    <p>Sem taxas, sem pegadinhas. Só economia pura!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTATO / NEWSLETTER -->
-    <section id="contato" class="contato">
-        <div class="container">
-            <div class="contato-content">
-                <div class="contato-info">
-                    <h2>📧 Não Perca Nenhuma Oferta!</h2>
-                    <p>Entre para nossa comunidade e comece a economizar hoje mesmo. Milhares de pessoas já estão aproveitando!</p>
-                    
-                    <div class="contato-stats">
-                        <div class="mini-stat">
-                            <i class="fas fa-users"></i>
-                            <span>+10.000 Membros</span>
-                        </div>
-                        <div class="mini-stat">
-                            <i class="fas fa-star"></i>
-                            <span>4.9/5 Avaliação</span>
-                        </div>
+                <a href="https://www.instagram.com/sniper_de_promocoes/" target="_blank" class="social-btn instagram">
+                    <span class="social-icon">📷</span>
+                    <div>
+                        Instagram
+                        <span class="social-handle">@sniper_de_promocoes</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="cta-box">
-                    <h3>Junte-se Agora!</h3>
-                    <p>Escolha sua plataforma favorita:</p>
-                    <div class="cta-buttons">
-                        <a href="https://t.me/SniperDePromocoes" class="btn btn-primary" target="_blank">
-                            <i class="fab fa-telegram"></i> Telegram
-                        </a>
-                        <a href="https://whatsapp.com/channel/0029VbDHGlp0gcfNymH8cA0V" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
+                <a href="https://www.tiktok.com/@sniperdepromocoes" target="_blank" class="social-btn tiktok">
+                    <span class="social-icon">🎵</span>
+                    <div>
+                        TikTok
+                        <span class="social-handle">@sniperdepromocoes</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </a>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <img src="logo.png" alt="Logo" class="footer-logo">
-                    <h3>Sniper de Promoções</h3>
-                    <p>Snipando as promoções para você não pagar caro nas coisas.</p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#ofertas">Ofertas</a></li>
-                        <li><a href="#comunidade">Comunidade</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Redes Sociais</h4>
-                    <div class="footer-social">
-                        <a href="https://t.me/SniperDePromocoes" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://whatsapp.com/channel/0029VbDHGlp0gcfNymH8cA0V" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://instagram.com/sniper_de_promocoes" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://tiktok.com/@sniperdepromocoes" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://x.com/sniperdepromo" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://t.me/SniperDePromocoes" target="_blank" class="social-btn telegram">
+                    <span class="social-icon">✈️</span>
+                    <div>
+                        Telegram
+                        <span class="social-handle">Canal oficial</span>
                     </div>
-                </div>
-            </div>
+                </a>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Sniper de Promoções. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+                <a href="https://whatsapp.com/channel/0029VbDHGlp0gcfNymH8cA0V" target="_blank" class="social-btn whatsapp">
+                    <span class="social-icon"></span>
+                    <div>
+                        WhatsApp
+                        <span class="social-handle">Canal de ofertas</span>
+                    </div>
+                </a>
 
-    <script src="script.js"></script>
+                <a href="https://x.com/sniperdepromo" target="_blank" class="social-btn twitter">
+                    <span class="social-icon">🐦</span>
+                    <div>
+                        Twitter / X
+                        <span class="social-handle">@sniperdepromo</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 <strong>Sniper de Promoções</strong> — Feito com <span class="heart">❤</span> e muita <span class="target"></span> mira.</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">Snipando as promoções para você não pagar caro nas coisas.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
