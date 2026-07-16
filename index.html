@@ -3,120 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sniper de Promoções - Ofertas Imperdíveis</title>
+    <meta name="description" content="Sniper de Promoções - Snipando as promoções para você não pagar caro nas coisas. As melhores ofertas da internet em um só lugar.">
+    <meta name="keywords" content="promoções, ofertas, descontos, cupons, black friday, deals">
+    <meta name="author" content="Sniper de Promoções">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sniper de Promoções - As Melhores Ofertas">
+    <meta property="og:description" content="Snipando as promoções para você não pagar caro nas coisas">
+    
+    <title>Sniper de Promoções - As Melhores Ofertas da Internet</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- HEADER / NAVIGATION -->
     <header>
-        <nav>
-            <div class="logo">
-                <img src="Logo.png.png" alt="Sniper de Promoções">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo.png" alt="Sniper de Promoções Logo">
+                    <span>Sniper de Promoções</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#comunidade">Comunidade</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#redes">Redes Sociais</a></li>
-                <li><a href="#cta">Entrar</a></li>
-            </ul>
         </nav>
     </header>
 
-    <section id="hero">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1>🎯 Sniper de Promoções</h1>
-            <p class="subtitle">As melhores ofertas da internet, direto no seu Telegram!</p>
+            <div class="hero-badge">🎯 Economia Inteligente</div>
+            <h1>Sniper de Promoções</h1>
+            <p class="hero-subtitle">Snipando as promoções para você não pagar caro nas coisas</p>
+            <p class="hero-description">Encontre as melhores ofertas da internet antes de todo mundo. Economize de verdade com cupons exclusivos e promoções imperdíveis!</p>
+            
+            <div class="hero-buttons">
+                <a href="https://t.me/SniperDePromocoes" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-telegram"></i> Entrar no Telegram
+                </a>
+                <a href="#ofertas" class="btn btn-secondary">
+                    <i class="fas fa-tags"></i> Ver Ofertas
+                </a>
+            </div>
+
             <div class="stats">
                 <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Ofertas/Dia</p>
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Membros Ativos</span>
                 </div>
                 <div class="stat-item">
-                    <h3>40%</h3>
-                    <p>Economia Média</p>
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Ofertas/Dia</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">Economia Média</span>
                 </div>
             </div>
-            <a href="https://t.me/+Dhnwjkn0NM1lMDgx" class="cta-button" target="_blank">
-                📱 Entrar no Canal do Telegram
-            </a>
+        </div>
+        <div class="hero-image">
+            <img src="logo.png" alt="Sniper Logo" class="floating-logo">
         </div>
     </section>
 
-    <section id="sobre">
-        <h2>Sobre o Sniper de Promoções</h2>
-        <p>Somos especializados em encontrar as melhores promoções e cupons de desconto da internet. Nossa equipe trabalha 24/7 para trazer ofertas exclusivas direto para você!</p>
-    </section>
+    <!-- OFERTAS EM DESTAQUE -->
+    <section id="ofertas" class="ofertas">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔥 Ofertas em Destaque</h2>
+                <p>As melhores promoções selecionadas para você</p>
+            </div>
 
-    <section id="redes">
-        <h2>🏠 Junte-se à Nossa Comunidade</h2>
-        <p class="redes-subtitle">Receba ofertas em primeira mão nas suas redes favoritas</p>
-        <div class="redes-grid">
-            <a href="https://t.me/+Dhnwjkn0NM1lMDgx" class="rede-card" target="_blank">
-                <div class="rede-icon telegram-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.121.099.155.232.171.326.016.093.036.306.02.472z"/>
-                    </svg>
+            <div class="ofertas-grid">
+                <div class="oferta-card">
+                    <div class="oferta-badge">-70%</div>
+                    <div class="oferta-icon">📱</div>
+                    <h3>Eletrônicos</h3>
+                    <p>Smartphones, notebooks, tablets e muito mais com descontos incríveis</p>
+                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
                 </div>
-                <h3>Telegram</h3>
-                <p>Canal principal com ofertas instantâneas</p>
-                <span class="arrow">→</span>
-            </a>
 
-            <a href="https://wa.me/seunumero" class="rede-card" target="_blank">
-                <div class="rede-icon whatsapp-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
+                <div class="oferta-card">
+                    <div class="oferta-badge">-60%</div>
+                    <div class="oferta-icon">👕</div>
+                    <h3>Moda & Estilo</h3>
+                    <p>Roupas, calçados e acessórios das melhores marcas</p>
+                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
                 </div>
-                <h3>WhatsApp</h3>
-                <p>Receba ofertas direto no seu WhatsApp</p>
-                <span class="arrow">→</span>
-            </a>
 
-            <a href="https://instagram.com/seuperfil" class="rede-card" target="_blank">
-                <div class="rede-icon instagram-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
+                <div class="oferta-card">
+                    <div class="oferta-badge">-50%</div>
+                    <div class="oferta-icon">🏠</div>
+                    <h3>Casa & Decoração</h3>
+                    <p>Transforme sua casa com promoções exclusivas</p>
+                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
                 </div>
-                <h3>Instagram</h3>
-                <p>Dicas e ofertas exclusivas</p>
-                <span class="arrow">→</span>
-            </a>
 
-            <a href="https://tiktok.com/@seuperfil" class="rede-card" target="_blank">
-                <div class="rede-icon tiktok-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                    </svg>
+                <div class="oferta-card">
+                    <div class="oferta-badge">-80%</div>
+                    <div class="oferta-icon">🎮</div>
+                    <h3>Games & Diversão</h3>
+                    <p>Jogos, consoles e entretenimento com super descontos</p>
+                    <a href="https://t.me/SniperDePromocoes" class="btn-card">Ver Ofertas</a>
                 </div>
-                <h3>TikTok</h3>
-                <p>Vídeos rápidos das melhores promoções</p>
-                <span class="arrow">→</span>
-            </a>
-
-            <a href="https://twitter.com/seuperfil" class="rede-card" target="_blank">
-                <div class="rede-icon twitter-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </div>
-                <h3>Twitter / X</h3>
-                <p>Alertas em tempo real</p>
-                <span class="arrow">→</span>
-            </a>
+            </div>
         </div>
     </section>
 
-    <section id="cta">
-        <h2>Pronto para economizar?</h2>
-        <p>Junte-se a milhares de pessoas que já estão economizando com o Sniper de Promoções!</p>
-        <a href="https://t.me/+Dhnwjkn0NM1lMDgx" class="cta-button" target="_blank">
-            📱 Entrar Agora no Telegram
-        </a>
+    <!-- COMUNIDADE / REDES SOCIAIS -->
+    <section id="comunidade" class="comunidade">
+        <div class="container">
+            <div class="section-header">
+                <h2>📱 Junte-se à Nossa Comunidade</h2>
+                <p>Receba ofertas em primeira mão nas suas redes favoritas</p>
+            </div>
+
+            <div class="social-grid">
+                <a href="https://t.me/SniperDePromocoes" class="social-card telegram" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram</h3>
+                    <p>Canal principal com ofertas instantâneas</p>
+                    <span class="social-arrow">→</span>
+                </a>
+
+                <a href="https://whatsapp.com/channel/0029VbDHGlp0gcfNymH8cA0V" class="social-card whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>Receba ofertas direto no seu WhatsApp</p>
+                    <span class="social-arrow">→</span>
+                </a>
+
+                <a href="https://instagram.com/sniper_de_promocoes" class="social-card instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>Dicas e ofertas exclusivas</p>
+                    <span class="social-arrow">→</span>
+                </a>
+
+                <a href="https://tiktok.com/@sniperdepromocoes" class="social-card tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <h3>TikTok</h3>
+                    <p>Vídeos rápidos das melhores promoções</p>
+                    <span class="social-arrow">→</span>
+                </a>
+
+                <a href="https://x.com/sniperdepromo" class="social-card twitter" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter / X</h3>
+                    <p>Alertas em tempo real</p>
+                    <span class="social-arrow">→</span>
+                </a>
+            </div>
+        </div>
     </section>
 
+    <!-- POR QUE ESCOLHER -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>💎 Por Que Escolher o Sniper?</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Alertas Instantâneos</h3>
+                    <p>Seja o primeiro a saber das promoções relâmpago</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h3>Ofertas Verificadas</h3>
+                    <p>Todas as promoções são testadas pela nossa equipe</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Cupons Exclusivos</h3>
+                    <p>Descontos que você não encontra em outros lugares</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Gratuito</h3>
+                    <p>Sem taxas, sem pegadinhas. Só economia pura!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO / NEWSLETTER -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <div class="contato-content">
+                <div class="contato-info">
+                    <h2>📧 Não Perca Nenhuma Oferta!</h2>
+                    <p>Entre para nossa comunidade e comece a economizar hoje mesmo. Milhares de pessoas já estão aproveitando!</p>
+                    
+                    <div class="contato-stats">
+                        <div class="mini-stat">
+                            <i class="fas fa-users"></i>
+                            <span>+10.000 Membros</span>
+                        </div>
+                        <div class="mini-stat">
+                            <i class="fas fa-star"></i>
+                            <span>4.9/5 Avaliação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Junte-se Agora!</h3>
+                    <p>Escolha sua plataforma favorita:</p>
+                    <div class="cta-buttons">
+                        <a href="https://t.me/SniperDePromocoes" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-telegram"></i> Telegram
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029VbDHGlp0gcfNymH8cA0V" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 Sniper de Promoções. Todos os direitos reservados.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="logo.png" alt="Logo" class="footer-logo">
+                    <h3>Sniper de Promoções</h3>
+                    <p>Snipando as promoções para você não pagar caro nas coisas.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#comunidade">Comunidade</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="footer-social">
+                        <a href="https://t.me/SniperDePromocoes" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbDHGlp0gcfNymH8cA0V" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/sniper_de_promocoes" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@sniperdepromocoes" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://x.com/sniperdepromo" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sniper de Promoções. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
