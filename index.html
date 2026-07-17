@@ -636,19 +636,38 @@
         <div class="container header-inner">
             <div class="logo">
                 <div class="logo-icon">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Mira externa -->
-                        <circle cx="50" cy="50" r="35" stroke="#ff4757" stroke-width="2.5" fill="none"/>
-                        <circle cx="50" cy="50" r="28" stroke="#ff4757" stroke-width="2.5" fill="none"/>
-                        <!-- Linhas da mira -->
-                        <line x1="50" y1="5" x2="50" y2="20" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                        <line x1="50" y1="80" x2="50" y2="95" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                        <line x1="5" y1="50" x2="20" y2="50" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                        <line x1="80" y1="50" x2="95" y2="50" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                        <!-- Tag de preço no centro -->
-                        <path d="M42 42 L58 42 L62 46 L62 58 L50 70 L38 58 L38 46 Z" stroke="#2ed573" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                        <circle cx="54" cy="50" r="3" stroke="#2ed573" stroke-width="2" fill="none"/>
-                        <path d="M57 47 Q62 44 64 48" stroke="#2ed573" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="4" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Mira com efeito neon -->
+                        <g filter="url(#glow-red)">
+                            <circle cx="100" cy="100" r="70" stroke="#ff6b6b" stroke-width="4" fill="none"/>
+                            <circle cx="100" cy="100" r="58" stroke="#ff6b6b" stroke-width="4" fill="none"/>
+                            <rect x="96" y="20" width="8" height="30" rx="2" fill="#ff6b6b"/>
+                            <rect x="96" y="150" width="8" height="30" rx="2" fill="#ff6b6b"/>
+                            <rect x="20" y="96" width="30" height="8" rx="2" fill="#ff6b6b"/>
+                            <rect x="150" y="96" width="30" height="8" rx="2" fill="#ff6b6b"/>
+                        </g>
+                        <!-- Tag de preço com efeito neon -->
+                        <g filter="url(#glow-green)">
+                            <path d="M75 85 L115 85 L125 95 L125 115 L100 140 L75 115 L75 95 Z" stroke="#7bed9f" stroke-width="3" fill="none" stroke-linejoin="round"/>
+                            <circle cx="108" cy="100" r="5" stroke="#7bed9f" stroke-width="3" fill="none"/>
+                            <path d="M113 95 Q125 88 130 95" stroke="#7bed9f" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </g>
                     </svg>
                 </div>
                 <span>SNIPER DE PROMOÇÕES</span>
@@ -673,19 +692,36 @@
 
                 <div class="hero-title-wrapper">
                     <div class="hero-logo">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Mira externa -->
-                            <circle cx="50" cy="50" r="35" stroke="#ff4757" stroke-width="2.5" fill="none"/>
-                            <circle cx="50" cy="50" r="28" stroke="#ff4757" stroke-width="2.5" fill="none"/>
-                            <!-- Linhas da mira -->
-                            <line x1="50" y1="5" x2="50" y2="20" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                            <line x1="50" y1="80" x2="50" y2="95" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                            <line x1="5" y1="50" x2="20" y2="50" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                            <line x1="80" y1="50" x2="95" y2="50" stroke="#ff4757" stroke-width="3" stroke-linecap="round"/>
-                            <!-- Tag de preço no centro -->
-                            <path d="M42 42 L58 42 L62 46 L62 58 L50 70 L38 58 L38 46 Z" stroke="#2ed573" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                            <circle cx="54" cy="50" r="3" stroke="#2ed573" stroke-width="2" fill="none"/>
-                            <path d="M57 47 Q62 44 64 48" stroke="#2ed573" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="glow-red-hero" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                    <feMerge>
+                                        <feMergeNode in="blur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <filter id="glow-green-hero" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                                    <feMerge>
+                                        <feMergeNode in="blur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <g filter="url(#glow-red-hero)">
+                                <circle cx="100" cy="100" r="70" stroke="#ff6b6b" stroke-width="4" fill="none"/>
+                                <circle cx="100" cy="100" r="58" stroke="#ff6b6b" stroke-width="4" fill="none"/>
+                                <rect x="96" y="20" width="8" height="30" rx="2" fill="#ff6b6b"/>
+                                <rect x="96" y="150" width="8" height="30" rx="2" fill="#ff6b6b"/>
+                                <rect x="20" y="96" width="30" height="8" rx="2" fill="#ff6b6b"/>
+                                <rect x="150" y="96" width="30" height="8" rx="2" fill="#ff6b6b"/>
+                            </g>
+                            <g filter="url(#glow-green-hero)">
+                                <path d="M75 85 L115 85 L125 95 L125 115 L100 140 L75 115 L75 95 Z" stroke="#7bed9f" stroke-width="3" fill="none" stroke-linejoin="round"/>
+                                <circle cx="108" cy="100" r="5" stroke="#7bed9f" stroke-width="3" fill="none"/>
+                                <path d="M113 95 Q125 88 130 95" stroke="#7bed9f" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            </g>
                         </svg>
                     </div>
                     <h1>Sniper de<br>Promoções</h1>
